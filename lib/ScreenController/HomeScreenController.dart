@@ -4,6 +4,7 @@ import 'package:khaja_ghar/Screens/AllProductScreen.dart';
 import 'package:khaja_ghar/Screens/CreditDashboard.dart';
 import 'package:khaja_ghar/Screens/CustomerScreen.dart';
 import 'package:khaja_ghar/Screens/DashboardScreen.dart';
+import 'package:khaja_ghar/Screens/EmployeeScreen.dart';
 import 'package:khaja_ghar/Screens/SettingScreen.dart';
 import 'package:khaja_ghar/Screens/allOrderScreen.dart';
 
@@ -46,6 +47,7 @@ class HomeScreenController extends ChangeNotifier {
     AllOrderScreen(),
     AllProductScreen(),
     CustomerScreen(),
+    Employees(),
     CreditDashboard(),
     SettingScreen(),
   ];

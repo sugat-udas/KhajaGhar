@@ -35,16 +35,4 @@ class CookingCRUDController extends ChangeNotifier {
     index++;
     return index;
   }
-
-  int _itemQuantity;
-  int get itemQuantity => tableInfoList[1];
-  set itemQuantity(int value) {
-    _itemQuantity = value;
-    _itemQuantity--;
-    setQuantity(int val) {
-      tableInfoList[1] = val;
-      notifyListeners();
-      print(itemQuantity);
-    }
-  }
 }

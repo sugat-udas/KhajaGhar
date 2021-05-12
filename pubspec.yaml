@@ -32,6 +32,8 @@ dependencies:
   drawerbehavior: ^2.1.0
   get: ^3.24.0
   flutter_statusbarcolor: ^0.2.3
+  roundcheckbox: ^1.0.0+1
+  
 
 dev_dependencies:
   flutter_test:

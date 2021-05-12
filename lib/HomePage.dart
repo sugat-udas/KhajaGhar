@@ -118,8 +118,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   EachOrderItemMenu(
                     icons: Icons.dashboard,
-                    text: 'Credit',
+                    text: 'Employees',
                     index: 4,
+                  ),
+                  EachOrderItemMenu(
+                    icons: Icons.dashboard,
+                    text: 'Credit',
+                    index: 5,
                   ),
                   EachOrderItemMenu(
                     icons: Icons.dashboard,
