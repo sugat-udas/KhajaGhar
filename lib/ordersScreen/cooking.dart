@@ -87,15 +87,16 @@ Future<void> _showMyDialog(context) async {
   return showDialog<void>(
     context: context,
     builder: (BuildContext context) {
-      return AlertDialog(
-        contentPadding: EdgeInsets.zero,
-        content: SingleChildScrollView(
-            child: Container(
-          width: 646,
-          height: 609,
-          color: Colors.grey.shade300,
-          child: AlertBody(),
-        )),
+      return Expanded(
+        child: AlertDialog(
+          contentPadding: EdgeInsets.zero,
+          content: Container(
+            width: 646,
+            height: 609,
+            color: Colors.grey.shade300,
+            child: AlertBody(),
+          ),
+        ),
       );
     },
   );

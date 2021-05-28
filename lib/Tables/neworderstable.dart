@@ -21,7 +21,8 @@ class _NewOrderTableSecondPartState extends State<NewOrderTableSecondPart> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
       ),
-      child: Expanded(
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -139,10 +140,12 @@ class _NewOrderTableSecondPartState extends State<NewOrderTableSecondPart> {
                     BtnBtn(
                       text: "Cancel Order",
                       color: Colors.red,
+                      onPressed: () {},
                     ),
                     BtnBtn(
                       text: "Accept Order",
                       color: Colors.green,
+                      onPressed: () {},
                     )
                   ],
                 )

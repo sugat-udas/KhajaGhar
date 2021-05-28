@@ -74,18 +74,14 @@ class ReadyToDeliverFirstColumn extends StatelessWidget {
 }
 
 Widget btnbtn(String text, Color color) {
-  return Padding(
-    padding: const EdgeInsets.only(right: 25),
-    child: Expanded(
-      child: Container(
-        width: 130,
-        height: 35,
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(primary: color),
-          onPressed: () {},
-          child: Text(text),
-        ),
-      ),
+  return Container(
+    padding: EdgeInsets.only(right: 25.0),
+    width: 130,
+    height: 35,
+    child: ElevatedButton(
+      style: ElevatedButton.styleFrom(primary: color),
+      onPressed: () {},
+      child: Text(text),
     ),
   );
 }

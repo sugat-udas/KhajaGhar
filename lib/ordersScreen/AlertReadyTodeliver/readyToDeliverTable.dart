@@ -59,10 +59,10 @@ class ReadyToDeliverTable extends StatelessWidget {
                           text: item[0],
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 25.0),
-                        child: TableCell(
-                          verticalAlignment: TableCellVerticalAlignment.middle,
+                      TableCell(
+                        verticalAlignment: TableCellVerticalAlignment.middle,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 25.0),
                           child: _infoName(
                             text: item[1].toString(),
                           ),

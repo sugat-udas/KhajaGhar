@@ -1,17 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:khaja_ghar/Screens/EmployeeScreen/employeeScreenController.dart';
+import 'package:provider/provider.dart';
 
-class PersonalInformationwidget extends StatelessWidget {
-  const PersonalInformationwidget({
+// ignore: must_be_immutable
+class PersonalInformationwidget extends StatefulWidget {
+  String emailCont;
+  String nameCont;
+  String contactCont;
+  PersonalInformationwidget({
     Key key,
   }) : super(key: key);
 
   @override
+  _PersonalInformationwidgetState createState() =>
+      _PersonalInformationwidgetState();
+}
+
+class _PersonalInformationwidgetState extends State<PersonalInformationwidget> {
+  EmployeeScreenController _employeeScreenController;
+
+  String newInfo;
+
+  List newInfoDetail = [];
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      //width: 490.0,
-      // height: 401.0,
-      child: Card(
-        child: Expanded(
+    _employeeScreenController = Provider.of<EmployeeScreenController>(context);
+
+    return Expanded(
+      child: Container(
+        //width: 490.0,
+        // height: 401.0,
+        child: Card(
           child: Padding(
             padding: const EdgeInsets.only(
               bottom: 50.0,
@@ -29,12 +49,61 @@ class PersonalInformationwidget extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        _insideComponents(
-                          "Name",
-                          "Enter Name",
+                        _insideComponents("Name"),
+                        Container(
+                          width: 436,
+                          height: 35,
+                          child: TextFormField(
+                            onChanged: (value) {
+                              _employeeScreenController.aName = value;
+                            },
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              hintText: "Enter Name",
+                              hintStyle: TextStyle(fontSize: 14.0),
+                            ),
+                          ),
                         ),
-                        _insideComponents("Email", "Enter Email"),
-                        _insideComponents("Contact no", "Enter contact number"),
+                        _insideComponents(
+                          "Email",
+                        ),
+                        Container(
+                          width: 436,
+                          height: 35,
+                          child: TextFormField(
+                            onChanged: (value) => {
+                              _employeeScreenController.aEmail = value,
+                            },
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              hintText: "Enter Email",
+                              hintStyle: TextStyle(fontSize: 14.0),
+                            ),
+                          ),
+                        ),
+                        _insideComponents(
+                          "Contact no",
+                        ),
+                        Container(
+                          width: 436,
+                          height: 35,
+                          child: TextFormField(
+                            onChanged: (value) => {
+                              _employeeScreenController.aContact = value,
+                            },
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              hintText: "Enter Contact Number",
+                              hintStyle: TextStyle(fontSize: 14.0),
+                            ),
+                          ),
+                        ),
                         Text(
                           "Department",
                           style: TextStyle(fontSize: 14.0),
@@ -57,33 +126,62 @@ class PersonalInformationwidget extends StatelessWidget {
       ),
     );
   }
-}
 
-Widget statusDispalay(String text, Color color) {
-  return Container(
-    //height: 20,
-    width: 120.0,
-    child: Expanded(
-      child: Padding(
-        padding: const EdgeInsets.only(
-          top: 5.0,
-          bottom: 5.0,
-          left: 12.0,
-          right: 12.0,
-        ),
-        child: Center(
-          child: Text(
-            text,
-            style: TextStyle(color: Colors.black, fontSize: 11),
+  Widget _insideComponents(String topText) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            topText,
+            style: TextStyle(fontSize: 14.0),
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget statusDispalay(String text, Color color) {
+    return GestureDetector(
+      child: Container(
+        //height: 20,
+        width: 120.0,
+        child: Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(
+              top: 5.0,
+              bottom: 5.0,
+              left: 12.0,
+              right: 12.0,
+            ),
+            child: Center(
+              child: Text(
+                text,
+                style: TextStyle(color: Colors.black, fontSize: 11),
+              ),
+            ),
           ),
         ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: color,
+        ),
       ),
-    ),
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(10),
-      color: color,
-    ),
-  );
+      onTap: () {
+        setState(() {
+          /* newInfoDetail.add(widget.nameCont);
+          newInfoDetail.add(widget.emailCont);
+          newInfoDetail.add(widget.contactCont);
+*/
+        });
+        //   print(newInfoDetail);
+      },
+    );
+  }
 }
 
 // ignore: must_be_immutable
@@ -114,35 +212,4 @@ class InsideTableComponents extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget _insideComponents(String topText, String _hintText) {
-  return Padding(
-    padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          topText,
-          style: TextStyle(fontSize: 14.0),
-        ),
-        SizedBox(
-          height: 10.0,
-        ),
-        Container(
-          width: 436,
-          height: 35,
-          child: TextFormField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5),
-              ),
-              hintText: _hintText,
-              hintStyle: TextStyle(fontSize: 14.0),
-            ),
-          ),
-        )
-      ],
-    ),
-  );
 }

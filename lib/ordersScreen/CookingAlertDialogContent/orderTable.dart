@@ -20,9 +20,9 @@ class _OrderTableState extends State<OrderTable> {
         color: Colors.white,
         borderRadius: BorderRadius.circular(5),
       ),
-      child: Padding(
-        padding: const EdgeInsets.only(bottom: 10),
-        child: Expanded(
+      child: Expanded(
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

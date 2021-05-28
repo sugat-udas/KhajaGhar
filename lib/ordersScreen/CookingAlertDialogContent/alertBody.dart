@@ -127,27 +127,22 @@ class LastColumn extends StatelessWidget {
 
 Widget statusDispalay(String text, Color color) {
   return Container(
-    //height: 20,
-    //width: 70,
-    child: Expanded(
-      child: Padding(
-        padding: const EdgeInsets.only(
-          top: 5.0,
-          bottom: 5.0,
-          left: 8.0,
-          right: 8.0,
-        ),
-        child: Center(
-          child: Text(
-            text,
-            style: TextStyle(color: Colors.white, fontSize: 11),
-          ),
+    decoration: BoxDecoration(
+        color: CustomColors.creditColor,
+        borderRadius: BorderRadius.circular(12)),
+    child: Padding(
+      padding: const EdgeInsets.only(
+        top: 5.0,
+        bottom: 5.0,
+        left: 8.0,
+        right: 8.0,
+      ),
+      child: Center(
+        child: Text(
+          text,
+          style: TextStyle(color: Colors.white, fontSize: 11),
         ),
       ),
-    ),
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(10),
-      color: color,
     ),
   );
 }
@@ -262,6 +257,7 @@ class FirstColumn extends StatelessWidget {
             BtnBtn(
               text: "Cancel",
               color: Colors.red,
+              onPressed: () {},
             )
             //BtnClass(bColor: Colors.red, bText: "Cancel")
           ],

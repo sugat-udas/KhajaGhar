@@ -46,35 +46,19 @@ class NewOrderBody extends StatelessWidget {
                           IconBtnSmall()
                         ],
                       ),
-                      Container(
-                        width: 130,
-                        height: 35,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: Colors.grey),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            _showMyAssignDialog(context);
-                          },
-                          style: ElevatedButton.styleFrom(
-                            primary: Color(0xffDBDBDB),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.add,
-                                color: Colors.black,
-                                size: 14.0,
-                              ),
-                              Text(
-                                "Add Order",
-                                style: TextStyle(color: Colors.black),
-                              )
-                            ],
-                          ),
+                      ButtonWithIcon(
+                        btnColor: Color(0xffDBDBDB),
+                        btnIcon: Icon(
+                          Icons.add,
+                          size: 14.0,
+                          color: Colors.black,
                         ),
-                      )
+                        btnText: "Add Order",
+                        btnTextColor: Colors.black,
+                        onPressed: () {
+                          _showMyAssignDialog(context);
+                        },
+                      ),
                     ],
                   ),
                 ),

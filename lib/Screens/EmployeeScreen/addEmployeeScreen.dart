@@ -6,9 +6,18 @@ import 'package:khaja_ghar/constants/components.dart';
 import 'package:khaja_ghar/constants/customColors.dart';
 import 'package:provider/provider.dart';
 
-class AddEmployee extends StatelessWidget {
+class AddEmployee extends StatefulWidget {
+  @override
+  _AddEmployeeState createState() => _AddEmployeeState();
+}
+
+class _AddEmployeeState extends State<AddEmployee> {
+  EmployeeScreenController _employeeScreenController;
+  List newInfoDetail = [];
+
   @override
   Widget build(BuildContext context) {
+    _employeeScreenController = Provider.of<EmployeeScreenController>(context);
     return Container(
       width: MediaQuery.of(context).size.width - 215,
       child: Padding(
@@ -18,7 +27,24 @@ class AddEmployee extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TopColumn(),
+              TopColumn(
+                bText: "Add Employee",
+                bOnpressed: () {
+                  setState(() {
+                    _employeeScreenController.changeFlage();
+                    print(_employeeScreenController.addNewEmployeeFlag);
+
+                    _employeeScreenController.setName([
+                      _employeeScreenController.aImage,
+                      _employeeScreenController.aName,
+                      _employeeScreenController.aEmail,
+                      _employeeScreenController.aContact,
+                      "*****",
+                      "KDS",
+                    ]);
+                  });
+                },
+              ),
               SizedBox(
                 height: 23.0,
               ),
@@ -224,8 +250,13 @@ class HeadingColumn extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class TopColumn extends StatefulWidget {
-  const TopColumn({
+  String bText;
+  Function bOnpressed;
+  TopColumn({
+    this.bOnpressed,
+    this.bText,
     Key key,
   }) : super(key: key);
 
@@ -234,10 +265,12 @@ class TopColumn extends StatefulWidget {
 }
 
 class _TopColumnState extends State<TopColumn> {
-  EmployeeScreenController _employeeScreenController;
+  String name = PersonalInformationwidget().nameCont;
+  String email = PersonalInformationwidget().emailCont;
+  String contact = PersonalInformationwidget().contactCont;
+
   @override
   Widget build(BuildContext context) {
-    _employeeScreenController = Provider.of<EmployeeScreenController>(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -258,15 +291,9 @@ class _TopColumnState extends State<TopColumn> {
         ),
         //btnbtn("Add Employee", CustomColors.greenColor,_onPressed),
         BtnBtn(
-          text: "Add Employee",
+          text: widget.bText,
           color: CustomColors.greenColor,
-          onPressed: () {
-            setState(() {
-              _employeeScreenController.changeFlage();
-
-              print(_employeeScreenController.addNewEmployeeFlag);
-            });
-          },
+          onPressed: widget.bOnpressed,
         )
       ],
     );

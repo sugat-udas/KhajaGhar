@@ -117,25 +117,23 @@ class _BtnClassState extends State<BtnClass> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 25),
-      child: Expanded(
-        child: Container(
-          width: 130.0,
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(primary: widget.bColor),
-            onPressed: widget.onpressed,
-            child: Row(
-              children: [
-                widget.bImage,
-                SizedBox(
-                  width: 5.0,
-                ),
-                Text(
-                  widget.bText,
-                  style: TextStyle(color: widget.bTextColor),
-                ),
-              ],
-            ),
+      padding: const EdgeInsets.only(right: 25.0),
+      child: Container(
+        width: 130.0,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(primary: widget.bColor),
+          onPressed: widget.onpressed,
+          child: Row(
+            children: [
+              widget.bImage,
+              SizedBox(
+                width: 5.0,
+              ),
+              Text(
+                widget.bText,
+                style: TextStyle(color: widget.bTextColor),
+              ),
+            ],
           ),
         ),
       ),
@@ -187,17 +185,65 @@ class _BtnBtnState extends State<BtnBtn> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(right: 25),
-      child: Expanded(
-        child: Container(
-          width: 130,
-          height: 35,
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(primary: widget.color),
-            onPressed: widget.onPressed,
-            child: Text(widget.text),
-          ),
+      child: Container(
+        width: 130,
+        height: 35,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(primary: widget.color),
+          onPressed: widget.onPressed,
+          child: Text(widget.text),
         ),
       ),
     );
+  }
+}
+
+// ignore: must_be_immutable
+class ButtonWithIcon extends StatefulWidget {
+  Color btnColor;
+  Function onPressed;
+  Icon btnIcon;
+  Color btnTextColor;
+  String btnText;
+  ButtonWithIcon({
+    this.btnColor,
+    this.onPressed,
+    this.btnIcon,
+    this.btnText,
+    this.btnTextColor,
+  });
+  @override
+  _ButtonWithIconState createState() => _ButtonWithIconState();
+}
+
+class _ButtonWithIconState extends State<ButtonWithIcon> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        width: 130.0,
+        height: 35.0,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5),
+        ),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: widget.btnColor,
+          ),
+          onPressed: widget.onPressed,
+          child: Row(
+            children: [
+              widget.btnIcon,
+              SizedBox(
+                width: 3.0,
+              ),
+              Text(
+                widget.btnText,
+                style: TextStyle(
+                  color: widget.btnTextColor,
+                ),
+              )
+            ],
+          ),
+        ));
   }
 }

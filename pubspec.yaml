@@ -33,6 +33,14 @@ dependencies:
   get: ^3.24.0
   flutter_statusbarcolor: ^0.2.3
   roundcheckbox: ^1.0.0+1
+  image_picker_web: ^2.0.2
+  mime: ^1.0.0
+  webview_flutter: ^0.3.20+2
+  file_picker: ^3.0.1
+  path_provider: 
+  http: 
+  image: 
+  image_picker: 
   
 
 dev_dependencies:
